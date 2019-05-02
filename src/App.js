@@ -14,13 +14,12 @@ class App extends Component {
 
   }
 
-  // componentWillMount() {
-  //   this.closeModal();
-  // }
 
   closeModal = () => {
     console.log(`I'm still here clicked. closeModal state`, this.state)
-    this.setState({ showModal: false })
+    this.setState({ showModal: false }, () => {
+      this.activateModal();
+    })
   }
 
   activateModal = () => {
@@ -32,15 +31,18 @@ class App extends Component {
     return (
       <main>
         <div className="App">
-          <h1>This is View One, waiting for the modal to appear</h1>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu massa risus. Donec hendrerit, lectus varius lobortis ultrices, leo urna interdum massa, sed rhoncus sem nulla ut justo. Aliquam aliquam magna urna, quis posuere metus scelerisque eu. Donec quis mauris lacinia, aliquet sem sit amet, venenatis felis. Pellentesque porta odio ut erat aliquet sollicitudin. Cras scelerisque sapien sed viverra maximus. Duis egestas velit nec cursus dignissim. Ut tincidunt risus hendrerit quam scelerisque, non ullamcorper elit rhoncus. Mauris tempor arcu a dui interdum vehicula. Quisque vitae rhoncus neque, eu tempus odio. Donec commodo dictum ligula. Pellentesque porta aliquam viverra. Mauris in diam egestas velit egestas tincidunt. Quisque pellentesque sed urna at dictum. Donec vitae pulvinar arcu. Quisque quis est diam.
+          <h1>Home</h1>
+          <p>Lorem ipsum dolor amet post-ironic activated charcoal brooklyn meggings pickled health goth roof party pour-over edison bulb before they sold out knausgaard mumblecore art party everyday carry tofu. Put a bird on it edison bulb waistcoat thundercats vegan mlkshk. Lumbersexual cold-pressed af craft beer, pork belly leggings raw denim farm-to-table knausgaard occupy narwhal cornhole glossier selfies four loko. Cliche photo booth portland locavore plaid. Sartorial roof party unicorn enamel pin waistcoat. Letterpress tumblr blue bottle, heirloom poke ugh cornhole humblebrag kombucha pork belly. Umami meditation bushwick try-hard, beard chia tumblr neutra viral.
 
-Suspendisse nec arcu et ligula blandit hendrerit. Duis non mauris in dui rhoncus imperdiet interdum at velit. Curabitur lacus nibh, sagittis vitae euismod vitae, lobortis ut felis. Vestibulum mattis, odio ut tempor egestas, mauris lectus aliquet quam, at sollicitudin tortor odio id enim. Nunc neque mauris, sodales nec est id, commodo varius risus. Aenean semper vulputate nulla, vel eleifend tortor tempor sed. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ligula nisi, vehicula quis sem eu, porta tempor metus. Sed gravida laoreet sapien, id posuere dui rhoncus sed.
+        Cray health goth chicharrones 8-bit, sriracha seitan listicle chillwave meditation selfies retro salvia coloring book beard. Tote bag church-key banh mi edison bulb vexillologist trust fund pop-up iceland cronut brunch. Fashion axe vaporware gluten-free, fam selvage chillwave glossier helvetica echo park ugh prism pok pok yuccie. Distillery lo-fi quinoa polaroid man braid vegan green juice, YOLO intelligentsia fashion axe. Dreamcatcher gluten-free lyft heirloom tumeric williamsburg.
 
-Vivamus vehicula dolor at scelerisque fringilla. Proin a tincidunt lacus, vitae tempus ligula. Nunc ac metus nec erat accumsan commodo quis quis arcu. Donec sit amet augue a tellus rutrum eleifend. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Suspendisse vulputate diam at sem maximus egestas. Cras tincidunt quis lectus quis mollis. Nulla eu euismod felis, vitae bibendum dui. Suspendisse non felis non sapien aliquam vulputate sit amet non arcu.
-</p>
+        Quinoa pug enamel pin, lumbersexual meh flannel vinyl. Migas selvage irony ramps godard tilde. Polaroid edison bulb meditation, cold-pressed vice butcher af cray typewriter quinoa. Kitsch letterpress 90's artisan messenger bag celiac.
+
+        Twee migas biodiesel portland squid chartreuse jean shorts you probably haven't heard of them tousled chillwave cray. Chicharrones raw denim cliche, tattooed lomo readymade schlitz hot chicken. Schlitz live-edge twee iceland crucifix copper mug, kombucha pitchfork raw denim. Succulents tumeric forage skateboard aesthetic.
+
+        Actually plaid helvetica hashtag tacos. Humblebrag cray wolf, bushwick brunch af sartorial. Microdosing shoreditch tbh hell of pug. Pabst tilde tofu crucifix raw denim, gentrify freegan pinterest venmo williamsburg schlitz scenester YOLO. Migas dreamcatcher neutra messenger bag literally VHS poutine venmo succulents ramps plaid.</p>
         </div>
-        {this.state.showModal ? <ViewOne onClick={this.closeModal} /> : ''}
+        {this.state.showModal ? <ViewOne closeModal={this.closeModal} /> : ''}
       </main >
     );
   }
