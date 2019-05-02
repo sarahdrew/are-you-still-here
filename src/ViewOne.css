@@ -1,0 +1,17 @@
+.viewone {
+position: relative;
+text-align: center;
+background: white;
+
+}
+.viewone{
+    border: 1px solid black;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 12px;
+    height: 10%;
+    width: 8em;
+    box-shadow: -2px -2px #7f9098;
+}
