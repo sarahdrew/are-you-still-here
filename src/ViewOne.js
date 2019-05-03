@@ -18,11 +18,6 @@ class ViewOne extends Component {
 
         );
     }
-    // ViewOne.propTypes = {
-    //     onClose: PropTypes.func.isRequired,
-    //     show: PropTypes.bool,
-    //     children: PropTypes.node
-    // };
 }
 
 export default ViewOne;

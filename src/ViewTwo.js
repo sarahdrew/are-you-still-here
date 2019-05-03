@@ -1,13 +1,22 @@
 import React, { Component } from "react";
+import './ViewTwo.css';
 
-export default class ViewOne extends Component {
+class ViewTwo extends Component {
+
     render() {
-        //stuff
-        //onClick for stillhere button
+
         return (
-            <div className="viewone"><h3>You've been logged out</h3>
-                <button className="stillhere">back to home</button>
+            <div className="overlay">
+                <div className="viewone">
+                    <h3>You've been logged out</h3>
+                    <button className="closemodal" onClick={() => this.props.closeModal()}>
+                        Back to home
+                </button>
+
+                </div>
             </div>
-        )
+
+        );
     }
 }
+export default ViewTwo;
