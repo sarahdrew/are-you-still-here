@@ -2,6 +2,14 @@ import React, { Component } from "react";
 import './ViewOne.css';
 
 class ViewOne extends Component {
+    static t;
+    componentDidMount() {
+        this.t = setTimeout(this.props.dismissedModal, 5000);
+    }
+
+    componentWillUnmount() {
+        clearTimeout(this.t);
+    }
 
     render() {
 

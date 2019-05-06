@@ -9,7 +9,7 @@ class ViewTwo extends Component {
             <div className="overlay">
                 <div className="viewone">
                     <h3>You've been logged out</h3>
-                    <button className="closemodal" onClick={() => this.props.closeModal()}>
+                    <button className="closemodal" onClick={() => this.props.activateModal()}>
                         Back to home
                 </button>
 

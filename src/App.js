@@ -28,44 +28,46 @@ class App extends Component {
 
   activateModal = () => {
     console.log(`activateModal state`, this.state);
+    this.setState({ showViewTwo: false });
     setTimeout(() => this.setState({ showModal: true }), 10000)
 
   }
+  rerenderHome = () => {
+    setTimeout(() => this.setState({ showModal: true, showViewTwo: false }), 10000)
+  }
+
+  dismissedModal = () => {
+    console.log(`it has been 5 seconds, modal moves to view two`);
+    this.setState({ showViewTwo: true, showModal: false });
+
+  }
+
+  render() {
+    return (
+      <main>
+        {this.state.showViewTwo ? <ViewTwo closeModal={this.closeModal} activateModal={this.activateModal} /> :
+          <div className="App">
+            <header>
+              <h1>Home</h1>
+            </header>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin non congue felis. Cras elit diam, egestas vel laoreet ac, volutpat vel lacus. Sed lacus quam, feugiat id tortor non, rutrum pharetra nunc. Pellentesque eu posuere dolor. In egestas nunc sit amet nisl rhoncus, non vulputate risus efficitur. Proin sodales, mi quis congue consequat, lacus nisl efficitur arcu, quis tempus elit nisl a libero. Fusce ante metus, scelerisque eu leo id, congue pharetra ex. Sed ut erat quis tellus commodo posuere. In metus libero, scelerisque non placerat eget, consectetur vel purus. Donec ut vestibulum enim. Nam sagittis ex quis leo blandit, ut vulputate ligula finibus. Vestibulum a tempor lacus, et pretium lectus. Sed vel lectus dignissim, accumsan leo eget, consectetur metus. Sed ut nunc lectus. Aliquam quis massa vel dui malesuada ultrices ac a arcu. Quisque congue mauris eget lectus porttitor maximus.</p>
+
+            <p>In sagittis nibh ac purus aliquam aliquet. Sed pellentesque nulla in orci blandit, vitae feugiat turpis iaculis. Vivamus ex nulla, aliquam nec iaculis quis, scelerisque vel sem. Cras lobortis, ipsum at facilisis aliquam, lacus mauris aliquam nulla, vehicula fermentum nisi augue at nunc. Nunc libero nisl, rhoncus quis imperdiet sit amet, gravida sed turpis. Maecenas sit amet justo malesuada, eleifend dolor in, iaculis mauris. Ut nibh lectus, feugiat id arcu eget, feugiat elementum arcu. Aliquam facilisis metus sed enim vestibulum, ut laoreet sapien gravida. Etiam ut hendrerit nisl, eget interdum leo. Nulla vitae justo vel leo gravida eleifend. Nunc et fringilla nunc. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at hendrerit tortor. Donec porta ac neque sit amet fringilla. Duis dictum laoreet pulvinar.</p>
+
+            <p>Nunc mauris risus, hendrerit vel arcu at, imperdiet faucibus nunc. Etiam malesuada dolor vitae ligula luctus, nec viverra purus placerat. Curabitur vel nulla quis ex porttitor congue sit amet ac ipsum. Aenean ultricies tortor ut ipsum feugiat, vel porta arcu luctus. Aenean et lorem consectetur, tincidunt magna et, elementum odio. Fusce laoreet urna ut lacus lobortis scelerisque non faucibus lorem. Aenean sodales nunc ornare volutpat tristique. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Quisque sed dignissim magna. Maecenas a feugiat eros. Vivamus erat nisi, volutpat vitae varius aliquam, congue ut eros. Quisque nec nunc pretium, molestie elit a, ultrices leo. </p>
+
+            <p>Nullam efficitur urna fringilla pretium dictum. Nulla eu porttitor magna. Etiam pharetra fringilla laoreet. Vestibulum vel tellus id mi tristique pulvinar. Vivamus iaculis lectus ac aliquam efficitur. Nunc lectus velit, pellentesque at sem quis, ultrices auctor lectus. Donec euismod, enim ac commodo feugiat, mi urna tristique tortor, eu rhoncus eros odio eget felis. In at purus eget libero hendrerit tristique ut vel turpis.</p>
+
+            {this.state.showModal ? <ViewOne closeModal={this.closeModal} dismissedModal={this.dismissedModal} /> : ''}
+          </div>}
+
+
+      </main >
+    );
+  }
 }
 
-rerenderHome = () => {
-  setTimeout(() => this.setState({ showModal: true, showViewTwo: false }), 10000)
-}
 
-dismissedModal = () => {
-  console.log(`it has been 5 seconds, modal moves to view two`);
-  setTimeout(() => this.setState({ showModal: false, showViewTwo: true }), 5000)
-  this.rerenderHome();
 
-}
-
-render() {
-  return (
-    <main>
-      <div className="App">
-        <header>
-          <h1>Home</h1>
-        </header>
-        <p>Lorem ipsum dolor amet post-ironic activated charcoal brooklyn meggings pickled health goth roof party pour-over edison bulb before they sold out knausgaard mumblecore art party everyday carry tofu. Put a bird on it edison bulb waistcoat thundercats vegan mlkshk. Lumbersexual cold-pressed af craft beer, pork belly leggings raw denim farm-to-table knausgaard occupy narwhal cornhole glossier selfies four loko. Cliche photo booth portland locavore plaid. Sartorial roof party unicorn enamel pin waistcoat. Letterpress tumblr blue bottle, heirloom poke ugh cornhole humblebrag kombucha pork belly. Umami meditation bushwick try-hard, beard chia tumblr neutra viral.</p>
-
-        <p>Cray health goth chicharrones 8-bit, sriracha seitan listicle chillwave meditation selfies retro salvia coloring book beard. Tote bag church-key banh mi edison bulb vexillologist trust fund pop-up iceland cronut brunch. Fashion axe vaporware gluten-free, fam selvage chillwave glossier helvetica echo park ugh prism pok pok yuccie. Distillery lo-fi quinoa polaroid man braid vegan green juice, YOLO intelligentsia fashion axe. Dreamcatcher gluten-free lyft heirloom tumeric williamsburg.</p>
-
-        <p>Quinoa pug enamel pin, lumbersexual meh flannel vinyl. Migas selvage irony ramps godard tilde. Polaroid edison bulb meditation, cold-pressed vice butcher af cray typewriter quinoa. Kitsch letterpress 90's artisan messenger bag celiac. </p>
-
-        <p>Twee migas biodiesel portland squid chartreuse jean shorts you probably haven't heard of them tousled chillwave cray. Chicharrones raw denim cliche, tattooed lomo readymade schlitz hot chicken. Schlitz live-edge twee iceland crucifix copper mug, kombucha pitchfork raw denim. Succulents tumeric forage skateboard aesthetic.</p>
-
-        <p>Actually plaid helvetica hashtag tacos. Humblebrag cray wolf, bushwick brunch af sartorial. Microdosing shoreditch tbh hell of pug. Pabst tilde tofu crucifix raw denim, gentrify freegan pinterest venmo williamsburg schlitz scenester YOLO. Migas dreamcatcher neutra messenger bag literally VHS poutine venmo succulents ramps plaid.</p>
-      </div>
-      {this.state.showModal ? <ViewOne closeModal={this.closeModal} /> : ''}
-      {this.state.showViewTwo ? <ViewTwo closeModal={this.closeModal} /> : ''}
-    </main >
-  );
-}
-}
 
 export default App;
