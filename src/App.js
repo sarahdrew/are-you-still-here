@@ -14,32 +14,23 @@ class App extends Component {
   }
   componentDidMount() {
     this.activateModal();
-
   }
 
 
 
   closeModal = () => {
-    console.log(`I'm still here clicked. closeModal state`, this.state)
     this.setState({ showModal: false, showViewTwo: false }, () => {
       this.activateModal();
     })
   }
 
   activateModal = () => {
-    console.log(`activateModal state`, this.state);
     this.setState({ showViewTwo: false });
     setTimeout(() => this.setState({ showModal: true }), 10000)
-
-  }
-  rerenderHome = () => {
-    setTimeout(() => this.setState({ showModal: true, showViewTwo: false }), 10000)
   }
 
   dismissedModal = () => {
-    console.log(`it has been 5 seconds, modal moves to view two`);
     this.setState({ showViewTwo: true, showModal: false });
-
   }
 
   render() {
